@@ -1,0 +1,25 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "AdminLTE";
+@import "skins/skin-blue-light";
+
+body{
+  background-color: #ecf0f5;
+}
+
+.wrapper {
+  background-color: #ecf0f5 !important;
+}
+
+.content-wrapper {
+  min-height: 3000px;
+}
+
+.main-footer{
+  display: none;
+}
+
+.skin-blue-light .sidebar-menu > li:hover > a, 
+.skin-blue-light .sidebar-menu > li.active > a {
+  background: #eaeaea !important;
+}

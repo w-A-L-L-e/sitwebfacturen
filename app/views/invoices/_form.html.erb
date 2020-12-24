@@ -1,0 +1,39 @@
+<%= simple_form_for invoice do |f| %>
+  
+    <%= render "layouts/error_messages", :target => invoice %>
+    
+    <% if !invoice.offerte %>
+      <%= f.input :number, :label=>'Factuur NR', :input_html => { :maxlength=>10 } %>
+    <% end %>
+
+    <%= f.input :datum, :label=>'Datum van opmaak' %>
+
+   
+    <%= f.association :firm, selected: Firm.first.id %>
+    <%= f.association :client, collection: Client.order('created_at DESC'), label: 'Kies klant', include_blank: false %>
+    
+    
+    <div class="largecheckbox2">
+      <%#= f.input :offerte, :label=>'Offerte', :as=>:select, o %>
+      <%= f.collection_select :offerte, [[true, 'OFFERTE'] ,[false, 'FACTUUR']], :first, :last %>
+    </div>
+
+    <%= f.input :no_vat, :label=>"Outside belgium NO VAT" %>
+
+
+  <div class="numeric required">
+    <%= f.fields_for :invoice_lines do |builder| %>
+      <%= render 'invoice_line_fields', :f => builder %>                  
+    <% end %>
+    <p><%= link_to_add_fields "Lijn toevoegen", f, :invoice_lines %></p> 
+  </div>                                                                
+
+   
+    <%= f.submit 'Bewaren', :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                invoices_path, :class => 'btn' %>
+ 
+<% end %>
+
+<br/>
+<br/>

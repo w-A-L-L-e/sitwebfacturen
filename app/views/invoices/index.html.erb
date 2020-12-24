@@ -1,0 +1,11 @@
+
+<% title "Facturen en Offertes" %>
+<h1>Facturen en offertes</h1>
+
+<%= link_to t('Nieuwe factuur/offerte'),
+            new_invoice_path,
+            :class => 'btn btn-primary add-button' %>
+
+<%= render 'invoices', :invoices => @invoices %>
+
+

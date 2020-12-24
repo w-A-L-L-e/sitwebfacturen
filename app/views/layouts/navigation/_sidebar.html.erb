@@ -1,0 +1,44 @@
+<div class="main-sidebar">
+  <div class="sidebar">
+    
+    <form action="#" class="sidebar-form" method="get">
+      <div class="input-group">
+        <input class="form-control" name="q" placeholder="Search..." type="text" />
+        <span class="input-group-btn">
+        <button class="btn btn-flat" id="search-btn" name="search" type="submit">
+        <i class="fa fa-search">
+        </i></button></span>
+      </div>
+    </form>
+    <ul class="sidebar-menu">
+      <li class="header">
+        Menu
+      </li>
+
+      <!-- todo put active on right page here-->
+      <li class="active" ><%= link_to "Facturen", invoices_path %></li>
+      <li><%= link_to "Klanten",  clients_path %></li>
+      <li><%= link_to "Bedrijven", firms_path %></li>
+
+      <!-- li><%= link_to "Messages", messages_path%></li-->
+
+      <!-- treeview js is not used 
+      <li class="treeview">
+        <a href="#">
+          <span>Multilevel</span>
+          <i class="fa fa-angle-left pull-right">
+          </i></a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="#"> Link in level 2</a>
+          </li>
+          <li>
+            <a href="#"> Link in level 2</a>
+          </li>
+        </ul>
+        </li>
+      -->
+
+    </ul>
+  </div>
+</div>

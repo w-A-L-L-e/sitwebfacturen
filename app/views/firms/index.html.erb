@@ -1,0 +1,47 @@
+<%- model_class = Firm.new.class -%>
+<h1>
+Bedrijven
+</h1>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_firm_path,
+            :class => 'btn btn-primary' %>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:logo) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:vat) %></th>
+      <th><%= model_class.human_attribute_name(:bank) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @firms.each do |firm| %>
+      <tr>
+        <td><%= link_to firm.id, firm_path(firm) %></td>
+        <td><%= firm.logo %></td>
+        <td><%= firm.name %></td>
+        <td><%= firm.email %></td>
+        <td><%= firm.phone %></td>
+        <td><%= firm.vat %></td>
+        <td><%= firm.bank %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_firm_path(firm), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      firm_path(firm),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

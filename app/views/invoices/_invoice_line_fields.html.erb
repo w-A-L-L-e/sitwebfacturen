@@ -1,0 +1,23 @@
+
+<div class="fields">
+  <table>
+  <tr>
+    <td width="400px">
+    <%= f.label :description, "Beschrijving" %>
+    <%= f.text_area :description, :size=>"80x5", :class=>'wide_edit' %>
+    </td>
+    <td>
+      <%= f.label :qty, "Aantal" %>
+      <%= f.text_field :qty, :size=>4 %>
+      <%= f.label :price, "Prijs" %> 
+      <%= f.text_field :price, :size=>8 %>
+    </td>
+    <td>
+      <%= link_to_remove_fields "Verwijder", f %>
+    </td>
+    </tr>
+  </table>
+
+</div>
+
+

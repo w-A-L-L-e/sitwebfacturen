@@ -1,0 +1,7 @@
+<%= bootstrap_form_for( @message, local: true ) do |form| %>
+  
+  <%= form.text_field :name %>
+  <%= form.text_area :msg %>
+
+  <%= form.submit :class=>"btn btn-primary" %>
+<% end %>

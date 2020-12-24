@@ -1,0 +1,22 @@
+<%= simple_form_for @client, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    
+    <div class="controls">
+      <%= f.association :firm, selected: Firm.first.id %>
+    </div>
+
+  </div>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :vat %>
+  <%= f.input :phone %>
+  <%= f.input :fax %>
+  <%= f.input :bank %>
+  <%= f.input :address, :rows=>4 %>
+
+  <div class="form-actions">
+    <%= f.submit 'Aanmaken', :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                clients_path, :class => 'btn btn-danger' %>
+  </div>
+<% end %>

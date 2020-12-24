@@ -1,0 +1,121 @@
+
+<% if @invoice.offerte %>
+  <h1>Offerte <%= @invoice.number %> (<%= @invoice.id %>)</h1>
+<% else %>
+  <h1>Factuur <%= @invoice.number %></h1>
+<% end %>
+
+<% title @invoice.title %>
+
+<p>
+  <%= link_to "Print (PDF)", invoice_path(@invoice, :format => "pdf"), :class=>"btn" %> 
+</p>
+
+<table width="100%">
+<tr>
+<td valign="top">
+<p>
+  <%=h @invoice.firm.name%>
+</p>
+</td>
+<td> &nbsp; &nbsp;</td>
+<td>
+<p>
+  <strong>Klant:</strong>
+  <%=h @invoice.client.name %>  <br/>
+
+  <strong>Adres:</strong>
+  <%=h @invoice.client.address %> <br/>
+
+  <strong>Phone:</strong>
+  <%=h @invoice.client.phone %> <br/>
+
+
+  <strong>E-mail:</strong>
+  <%=h @invoice.client.email %> <br/>
+
+ <strong>VAT:</strong>
+  <%=h @invoice.client.vat %> <br/>
+
+
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>
+  <% if @invoice.offerte %>
+     <strong>OFFERTE:</strong>
+      <%=h @invoice.number %>
+      (<%= @invoice.id %>)
+  <% else %>
+    <strong>FACTUUR:</strong>
+    <%=h @invoice.number %>
+  <% end %>
+
+  
+  <% if @invoice.no_vat %>
+    <br/>
+    Geen BTW wordt hiervoor aangerekend
+  <% end %>
+</p>
+</td>
+</tr>
+</table>
+
+
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th> Beschrijving</th>
+    <th> Aantal</th>
+    <th> E.P.</th>
+    <th> Prijs ex. BTW</th>
+  </tr>
+</thead>
+<tbody>
+  <% for item in @invoice.invoice_lines %>
+    <tr>
+      <td> <%= item.description %> </td>
+      <td> <%= item.qty %> </td>
+      <td> <%= to_euro(item.price) %> </td>
+      <td> <%= to_euro(item.total) %> </td>
+    </tr>
+  <% end %>
+
+  <%if @invoice.no_vat  %>
+    <tr><td></td><td colspan="2">Totaal zonder btw</td><td> <%= to_euro @invoice.total_ex_vat %> </td></tr>
+    <tr><td></td><td colspan="3">
+      BTW verlegd - BTW te voldoen door medecontractant - 
+        art.196 BTW richtlijn 2006/112/EG
+    </td></tr>
+  <% else %>
+    <tr><td></td><td colspan="2">Totaal ex btw</td><td> <%= @invoice.total_ex_vat %> euro </td></tr>
+    <tr><td></td><td colspan="2">Totaal</td><td> <%= @invoice.total %> euro </td></tr>
+  <% end %>
+
+
+
+</tbody>
+
+</table>
+
+<p>
+Gelieve 
+<% if @invoice.no_vat %>
+  <%= to_euro( @invoice.total_ex_vat) %> 
+<% else %>
+  <%= to_euro( @invoice.total) %> 
+<% end %>
+over te schrijven op rekening <%= @invoice.firm.bank %> met mededeling 
+  <%=h @invoice.mededeling%>
+</p>
+
+
+
+<p>
+  <%= link_to "Edit", edit_invoice_path(@invoice), :class=>"btn" %> 
+  <%= link_to 'Destroy', @invoice, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <%= link_to "View All", invoices_path, :class=>"btn" %>
+</p>
+

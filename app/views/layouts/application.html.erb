@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>SIT Facturatie <%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+   
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
+    <%#= yield(:head) %>
+
+  </head>
+
+
+  <body class="fixed skin-blue-light">
+    
+    <div class="wrapper">
+      <%= render 'layouts/navigation/layout'%>
+
+      <div class="content-wrapper">
+          <%= yield %>
+      </div>
+      
+      <%= render 'layouts/navigation/footer' %>
+    </div>
+    
+  </body>
+</html>

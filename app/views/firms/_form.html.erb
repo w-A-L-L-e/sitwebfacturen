@@ -1,0 +1,20 @@
+<%= bootstrap_form_for @firm, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= f.text_field :logo, :class => 'text_field' %>
+      <%= f.text_field :name, :class => 'text_field' %>
+
+      <%= f.text_field :email, :class => 'text_field' %>
+      <%= f.text_field :phone, :class => 'text_field' %>
+      <%= f.text_field :fax, :class => 'text_field' %>
+      <%= f.text_field :vat, :class => 'text_field' %>
+      <%= f.text_field :bank, :class => 'text_field' %>
+
+      <%= f.text_area :address, :rows=>4 %>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                firms_path, :class => 'btn' %>
+  </div>
+<% end %>
+<br/>
+
