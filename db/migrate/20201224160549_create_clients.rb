@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Author: Walter Schreppers
+# Description: clients table migration
 class CreateClients < ActiveRecord::Migration[5.1]
   def change
     create_table :clients do |t|

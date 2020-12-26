@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# Author: Walter Schreppers
+# Description: firms table migration
 class CreateFirms < ActiveRecord::Migration[5.1]
   def change
     create_table :firms do |t|

@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+# Author: Walter Schreppers
+# Description:
+#   Invoice lines (every invoice has 1-n lines where you state tarif + qty)
+#
 class InvoiceLinesController < ApplicationController
   # GET /invoice_lines
   # GET /invoice_lines.json
@@ -47,7 +53,7 @@ class InvoiceLinesController < ApplicationController
         format.html { redirect_to @invoice_line, notice: 'Invoice line was successfully created.' }
         format.json { render json: @invoice_line, status: :created, location: @invoice_line }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @invoice_line.errors, status: :unprocessable_entity }
       end
     end
@@ -63,7 +69,7 @@ class InvoiceLinesController < ApplicationController
         format.html { redirect_to @invoice_line, notice: 'Invoice line was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @invoice_line.errors, status: :unprocessable_entity }
       end
     end

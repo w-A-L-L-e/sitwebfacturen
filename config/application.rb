@@ -1,5 +1,8 @@
-require_relative 'boot'
+# frozen_string_literal: true
 
+# Author: Walter Schreppers
+# Main module generated with rails new command (used to be 2.3 rails, later updated to 3.x then 5.x)
+require_relative 'boot'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -7,6 +10,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module Sitwebfacturen
+  # Main class application
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1

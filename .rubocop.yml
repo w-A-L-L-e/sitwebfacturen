@@ -1,0 +1,10 @@
+Metrics/MethodLength:
+  CountComments: false
+  Max: 20
+
+Metrics/BlockLength:
+  Max: 200
+
+AllCops:
+  NewCops: enable
+

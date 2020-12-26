@@ -1,3 +1,10 @@
+# frozen_string_literal: true
+
+# Author: Walter Schreppers
+# Description:
+#   Manage your firm(s) TODO: add logo saving and usage of logo
+#   in pdfs (right now its hardcoded for sit logo)
+#
 class FirmsController < ApplicationController
   # GET /firms
   # GET /firms.json
@@ -47,7 +54,7 @@ class FirmsController < ApplicationController
         format.html { redirect_to @firm, notice: 'Firm was successfully created.' }
         format.json { render json: @firm, status: :created, location: @firm }
       else
-        format.html { render action: "new" }
+        format.html { render action: 'new' }
         format.json { render json: @firm.errors, status: :unprocessable_entity }
       end
     end
@@ -63,7 +70,7 @@ class FirmsController < ApplicationController
         format.html { redirect_to @firm, notice: 'Firm was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @firm.errors, status: :unprocessable_entity }
       end
     end
@@ -82,9 +89,8 @@ class FirmsController < ApplicationController
   end
 
   private
-    def firm_params 
-      params.require(:firm).permit(:logo, :name, :email, :phone, :fax, :vat, :bank, :address)
-    end
 
-
+  def firm_params
+    params.require(:firm).permit(:logo, :name, :email, :phone, :fax, :vat, :bank, :address)
+  end
 end
