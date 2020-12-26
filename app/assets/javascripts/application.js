@@ -1,13 +1,16 @@
 // Author: Walter Schreppers
-// This is a manifest file that'll be compiled into application.js, which will include all the file//= require jquery
+// Description: Some quick and dirty js mostly for styling pages and allow
+//              inline invoice lines to work in the nested form of invoices.
+//              We also incorporate adminlte here for some quick styling of forms and pages.
+//
+// This is a manifest file that'll be compiled into application.js
+//= require jquery
 //= require turbolinks
 //= require bootstrap
 //= require rails-ujs
 //= require_tree .
 
 
-// Description: Some quick and dirty js mostly for styling pages and allow
-// inline invoice lines to work in the nested form of invoices.
 function fix_layout(){
   console.log("documen height=", $(document).height() );
   console.log("window  height=", $(window).height() );
@@ -22,6 +25,7 @@ function remove_fields(link) {
   $(link).closest(".fields").hide();
 }
 
+
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g");
@@ -31,17 +35,18 @@ function add_fields(link, association, content) {
 
 
 $(document).on("click", "a.link_to_add_fields", function(e){
-        e.preventDefault();
-        var link = $(this);
-        var association = $(this).data("association");
-        var content = $(this).data("content");
-        add_fields(link, association, content);
+  e.preventDefault();
+  var link = $(this);
+  var association = $(this).data("association");
+  var content = $(this).data("content");
+  add_fields(link, association, content);
 });
 
+
 $(document).on("click", "a.link_to_remove_fields", function(e){
-        e.preventDefault();
-        var link = $(this);
-        remove_fields(link);
+  e.preventDefault();
+  var link = $(this);
+  remove_fields(link);
 });
 
 
@@ -53,8 +58,7 @@ $(document).on('turbolinks:load', function() {
   }
   ,200 );
 
-
-  // highlight item in left menu with some vanilla js just for eye-candy ;)
+  // highlight item in left menu with some vanilla js ;)
   var menu = document.getElementsByClassName("sidebar-menu");
   if(menu && menu.length>0){
     var menu_items = menu[0].children;
