@@ -1,23 +1,11 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
+// Author: Walter Schreppers
+// This is a manifest file that'll be compiled into application.js, which will include all the file//= require jquery
 //= require turbolinks
 //= require bootstrap
 //= require rails-ujs
 //= require_tree .
 
 
-// Author: Walter Schreppers
 // Description: Some quick and dirty js mostly for styling pages and allow
 // inline invoice lines to work in the nested form of invoices.
 function fix_layout(){
@@ -57,14 +45,6 @@ $(document).on("click", "a.link_to_remove_fields", function(e){
 });
 
 
-$(document).ready( function(){
-	//$("#header").fadeIn();
-	//this could solve double load issues, needs further testing
-	//document.addEventListener("turbolinks:before-visit", function() {
-	//	Turbolinks.clearCache();
-	//});
-});
-
 $(document).on('turbolinks:load', function() {
 	//fix footer should always be on bottom...
   setTimeout( function(){ 
@@ -74,7 +54,7 @@ $(document).on('turbolinks:load', function() {
   ,200 );
 
 
-  // highlight item in left menu with some vanilla js ;)
+  // highlight item in left menu with some vanilla js just for eye-candy ;)
   var menu = document.getElementsByClassName("sidebar-menu");
   if(menu && menu.length>0){
     var menu_items = menu[0].children;
