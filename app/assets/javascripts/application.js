@@ -17,6 +17,9 @@
 //= require_tree .
 
 
+// Author: Walter Schreppers
+// Description: Some quick and dirty js mostly for styling pages and allow
+// inline invoice lines to work in the nested form of invoices.
 function fix_layout(){
   console.log("documen height=", $(document).height() );
   console.log("window  height=", $(window).height() );
@@ -65,10 +68,30 @@ $(document).ready( function(){
 $(document).on('turbolinks:load', function() {
 	//fix footer should always be on bottom...
   setTimeout( function(){ 
-    $(".content-wrapper").css("min-height",$(window).height()-70 );
+    $(".content-wrapper").css("min-height",$(window).height()-50 );
     $(".main-footer").show();
   }
-  ,1 );
+  ,200 );
 
+
+  // highlight item in left menu with some vanilla js ;)
+  var menu = document.getElementsByClassName("sidebar-menu");
+  if(menu && menu.length>0){
+    var menu_items = menu[0].children;
+    var url = window.location.href;
+    for( var i in menu_items){
+      var menu_item = menu_items[i];
+      if( menu_item.children && menu_item.children.length>0)
+        // better browser support but only highlight identical page
+        // if( menu_item.children[0].href == url ){ 
+        // nicer, also highlights subpages but includes only works in recent browsers
+        if( url.includes(menu_item.children[0].href) ){ 
+          menu_item.className = 'active'
+        }
+        else{
+          menu_item.className = ''
+        }
+    }
+  }
 });
 
