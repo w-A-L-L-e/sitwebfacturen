@@ -1,19 +1,24 @@
 
 <div class="fields">
-  <table>
+  <table class="field_table">
   <tr>
     <td width="400px">
     <%= f.label :description, "Beschrijving" %>
     <%= f.text_area :description, :size=>"80x5", :class=>'wide_edit' %>
     </td>
     <td>
-      <%= f.label :qty, "Aantal" %>
-      <%= f.text_field :qty, :size=>4 %>
+      <div class="invoice-line-controls">
+      <div class="field">
+      <%= f.label :qty, "Aantal" %> 
+      <%= f.text_field :qty, :size=>4 %> 
+      </div>
+
+      <div class="field">
       <%= f.label :price, "Prijs" %> 
-      <%= f.text_field :price, :size=>8 %>
-    </td>
-    <td>
-      <%= link_to_remove_fields "Verwijder", f %>
+      <%= f.text_field :price, :size=>8 %> <br/> 
+      </div>
+      <%= link_to_remove_fields "X", f %>
+      </div>
     </td>
     </tr>
   </table>

@@ -8,15 +8,23 @@ body{
 }
 
 .wrapper {
+  position: relative;
   background-color: #ecf0f5 !important;
 }
 
 .content-wrapper {
-  min-height: 3000px;
+  min-height: 100vh !important;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 30px;/* Footer height */
 }
 
-.main-footer{
-  display: none;
+
+footer.main-footer{
+  height: 50px;
+  margin-top: -50px;
+  width: 100%;
+  z-index: 200;
 }
 
 .skin-blue-light .sidebar-menu > li:hover > a, 
@@ -24,6 +32,24 @@ body{
   background: #eaeaea !important;
 }
 
-.form-actions {
-  margin-bottom: 2em;
+label {
+  min-width: 5em;
+}
+
+.invoice-line-controls {
+  margin-top: 19px;
+}
+.invoice-line-controls > .field {
+  margin-top: 8px;
+  margin-left: 10px;
+}
+
+.invoice-line-controls > .btn {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.link_to_add_fields {
+  margin-bottom: 10px;
+  margin-top: 10px;
 }

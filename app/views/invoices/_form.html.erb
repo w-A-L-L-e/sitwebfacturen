@@ -25,7 +25,8 @@
     <%= f.fields_for :invoice_lines do |builder| %>
       <%= render 'invoice_line_fields', :f => builder %>                  
     <% end %>
-    <p><%= link_to_add_fields "Lijn toevoegen", f, :invoice_lines %></p> 
+    <br/>
+    <p><%= link_to_add_fields "Beschrijving toevoegen", f, :invoice_lines %></p> 
   </div>                                                                
 
    
